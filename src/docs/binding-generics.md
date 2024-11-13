@@ -5,11 +5,11 @@ This document explores projections of Swift generics into C#.
 1. [Generic functions](#generic-functions)
 2. Generic types (TBD)
 3. Generics with protocol constraints (TBD)
-4. Generic with PAT constraints (TBD)
+4. Generics with PAT constraints (TBD)
 
 ## Generic functions
 
-When a generic type is used in Swift, its memory layout isn't known at compile time. To manage this, the method parameter whose type is genericis represented by an opaque pointer. To handle this:
+When a generic type is used in Swift, its memory layout isn't known at compile time. To manage this, the method parameter whose type is generic represented by an opaque pointer. To handle this:
 
 - **Opaque Pointers**: Swift represents generic parameters as opaque pointers (`%swift.opaque`), abstracting the actual memory layout.
 - **Type Metadata**: Swift includes a type metadata pointer (`%T`) as an implicit argument at the end of a function's signature. This metadata provides the runtime information needed to manage the generic type.
@@ -118,7 +118,7 @@ static unsafe void* GetNativeHandle<T>(ref T type) where T : ISwiftObject
 unsafe interface ISwiftObject
 {
     // Other members
-    
+
     public unsafe void* GetNativeHandle();
 }
 
